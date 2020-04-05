@@ -1,0 +1,50 @@
+单一用户职责的错误使用
+
+@startuml
+
+class CsClient {
++ {static} main();
+}
+
+Class Player {
+- name:String
+
++ void setGun(AbstractGun gun);
++ void killEnemy();
+}
+
+
+class AbstractGun {
+
+  + {abstract} void shoot();
+
+  + {abstract} String name();
+}
+
+
+package GunList  #AEAEAE{
+class HandGun {
+  + void shoot();
+  + void name();
+}
+
+
+class MachineGun {
++ void shoot();
++ void name();
+}
+
+}
+
+
+AbstractGun <|-- HandGun
+AbstractGun <|-- MachineGun
+Player --> AbstractGun
+CsClient <..> Player
+CsClient ..> AbstractGun
+
+
+
+@enduml
+
+

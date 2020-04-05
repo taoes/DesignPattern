@@ -1,0 +1,22 @@
+@startuml
+
+interface UserInfoService {
++ void changeUserName(String username);
++ void changePassword(String oldPassword);
++ void addRole(UserId userId,int roleId);
++ String getUserName();
++ String getPhoneNumber();
+}
+
+
+class UserInfo {
+
+ - userName:String
+ - address:String
+
+}
+
+
+UserInfoService <|-- UserInfo
+
+@enduml

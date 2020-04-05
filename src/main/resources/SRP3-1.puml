@@ -1,0 +1,40 @@
+单一用户职责的错误使用
+
+@startuml
+
+class Phone <<手机类>>{
+- String model;
+- String version;
+}
+
+
+together  {
+interface PhoneDataTransferService <<手机数据传输服务>> {
++ void transfer(PhoneTransManager manager);
+}
+
+
+
+interface PhoneConnectService <<手机连接服务>> {
+
++ void dial(String phoneNumber)
+
++ void hangUp();
+
+}
+}
+
+
+
+
+
+PhoneConnectService <|--- PhoneDataTransferService
+PhoneDataTransferService <... Phone
+PhoneConnectService <... Phone
+
+
+
+
+@enduml
+
+

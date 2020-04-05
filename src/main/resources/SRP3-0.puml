@@ -1,0 +1,17 @@
+单一用户职责的错误使用
+
+@startuml
+
+
+
+interface PhoneService {
+
++ void dial(String phoneNumber)
++ void char(Object content);
++ void hangUp();
+
+}
+
+@enduml
+
+

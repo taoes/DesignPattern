@@ -1,0 +1,34 @@
+单一用户职责的错误使用
+
+@startuml
+
+
+
+interface UserInfoService {
++ String getUserName();
++ String getPhoneNumber();
+}
+
+
+interface UserBizService {
++ void addRole(UserId userId, int roleId);
++ void changeUserName(String username);
++ void changePassword(String oldPassword);
+
+}
+
+
+class UserInfo {
+
+ - userName:String
+ - address:String
+
+}
+
+
+UserInfoService <... UserInfo
+UserBizService <... UserInfo
+
+@enduml
+
+

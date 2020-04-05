@@ -1,0 +1,46 @@
+@startuml
+
+title 简单工厂模式
+
+interface Phone {
+  + string getModel();
+  + void call(phone);
+  + bool sendMessage(phone,content)
+}
+
+class iPhoneX{
+    - model;
+    - price;
+    + string getModel();
+    + void call(phone);
+    + bool sendMessage(phone,content)
+}
+
+class Mi6 {
+  - model;
+  - price;
+
+  + string getModel();
+  + void call(phone);
+  + bool sendMessage(phone,content)
+}
+
+class PhoneFactory{
+  + Phone getPhone(model);
+}
+
+class Example {
+  + main();
+}
+
+
+
+
+Phone <|-- iPhoneX
+Phone <|-- Mi6
+
+Example --> PhoneFactory
+
+
+
+@enduml
