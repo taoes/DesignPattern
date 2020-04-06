@@ -1,0 +1,22 @@
+@startuml
+
+class Driver <<驾驶员>> {
++ void drive(BenZ benz);
+
+}
+
+
+class BenZ <<奔驰汽车>>{
+  + void run(int speed);
+}
+
+
+class Client{
++ void main()
+}
+
+
+Driver *-- BenZ
+Driver <-- Client
+BenZ <-- Client
+@enduml

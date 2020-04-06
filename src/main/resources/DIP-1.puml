@@ -1,0 +1,58 @@
+@startuml
+
+class Client <<启动类>> {
+  + void main();
+}
+note top of Client
+ 1. 依赖于ICar和IDriver
+ 2.并未直接直接细节
+end note
+
+IDriver <|-- Client
+ICar <|-- Client
+
+
+interface IDriver <<驾驶员抽象>> {
+
++ {abstract} void drive(ICar car,int speed);
+
+}
+
+
+
+interface ICar <<汽车抽象>> {
++ {abstract} String name();
++ {abstract} void run(int speed);
+}
+
+class Driver <<驾驶员>> {
++ void drive(ICar benz);
+}
+
+class BenZ <<奔驰汽车>>{
+	+ String name();
+  + void run(int speed);
+}
+
+class BWM <<宝马汽车>>{
+	+ String name();
+  + void run(int speed);
+}
+
+IDriver <.. Driver
+ICar <.. BenZ
+ICar <.. BWM
+
+
+
+IDriver <-- ICar
+
+
+note as Summary
+  Client 作为高层逻辑，并不直接依赖细节实现
+  仅仅依赖其抽象(interface OR abstractClass)
+
+end note
+
+
+@enduml
