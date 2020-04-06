@@ -24,4 +24,22 @@ public class ISP {
   public interface PersonSexService {
     boolean isMan(int personId);
   }
+
+  private static class PersonInfoServiceImpl implements PersonInfoService {
+
+    @Override
+    public String getPersonName(int personId) {
+      return null;
+    }
+
+    @Override
+    public int getPersonAge(int personId) {
+      return 0;
+    }
+
+    @Override
+    public boolean isMan(int personId) {
+      return false;
+    }
+  }
 }
