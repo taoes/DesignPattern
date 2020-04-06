@@ -1,0 +1,43 @@
+@startuml
+
+interface IPrettyGirl <<美女条件>> {
+  + {abstract}void goodLooking();
+  + {abstract}void nickFigure();
+  + {abstract}hasCulture();
+}
+
+note right
+1. 好看
+2. 身材好
+3. 文化修养*
+end note
+
+class PrettyGirl{
+
+  + void goodLooking();
+  + void nickFigure();
+  + hasCulture();
+}
+
+IPrettyGirl <|.. PrettyGirl
+
+abstract class AbstractSearch <<搜索逻辑>>{
+
+  + AbstractSearch(IPrettyGirl girl);
+
+  + {abstract} void show();
+
+}
+
+class Search{
+
++ void show();
+}
+
+
+AbstractSearch <|-- Search
+
+AbstractSearch <.. IPrettyGirl
+
+
+@enduml

@@ -1,0 +1,7 @@
+@startuml
+ClassA1 <-- ClassB1:  关联
+ClassA2 <.. ClassB2 : 依赖
+ClassA3 o-- ClassB3:聚集
+ClassA4 <|-- ClassB4:泛化
+ClassA5 <|.. ClassB5:实现
+@enduml

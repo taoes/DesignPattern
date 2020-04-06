@@ -1,0 +1,48 @@
+@startuml
+
+interface IPrettyGirl <<美女条件>> {
+  + {abstract}void goodLooking();
+  + {abstract}void nickFigure();
+}
+
+
+interface IPrettyCultureGirl <<美女文化条件>> {
+  + {abstract}hasCulture();
+}
+
+
+
+
+class PrettyGirl{
+  + void goodLooking();
+  + void nickFigure();
+  + hasCulture();
+}
+
+
+IPrettyGirl <|.. PrettyGirl
+IPrettyCultureGirl <|.. PrettyGirl
+
+abstract class AbstractSearch <<搜索逻辑>>{
+
+  + AbstractSearch(IPrettyGirl girl);
+
+  + AbstractSearch(IPrettyCultureGirl girl);
+
+  + {abstract} void show();
+
+}
+
+class Search <<搜索的实现>> {
+
++ void show();
+}
+
+
+AbstractSearch <|-- Search
+
+AbstractSearch <.. IPrettyGirl
+AbstractSearch <.. IPrettyCultureGirl
+
+
+@enduml
