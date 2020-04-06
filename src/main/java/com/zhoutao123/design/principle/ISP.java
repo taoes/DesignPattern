@@ -29,17 +29,17 @@ public class ISP {
 
     @Override
     public String getPersonName(int personId) {
-      return null;
+      return "NULL";
     }
 
     @Override
     public int getPersonAge(int personId) {
-      return 0;
+      return 12;
     }
 
     @Override
     public boolean isMan(int personId) {
-      return false;
+      return true;
     }
   }
 }
