@@ -1,0 +1,45 @@
+单一用户职责的错误使用
+
+@startuml
+
+class Teacher {
+
++ void command(GroupLeader leader);
+}
+
+
+
+class GroupLeader {
++ int count(List<Student> stuList);
+}
+
+
+class Student {
+  - private String name;
+}
+
+
+
+note top
+学生类暂无需要的逻辑
+end note
+
+
+Teacher ..> GroupLeader
+
+GroupLeader ..>Student
+Teacher ..>Student
+
+
+
+note as 汇总
+  这个需求中，Teacher 和 GroupLeader 都对Student 产生了依赖，
+  根据LKP的要求说调用方应该尽可能少的知道依赖类的内部逻辑
+  这里 Teacher 并不需要与Student 做直接朋友
+  显然这种设计师不合理的
+end note
+
+
+@enduml
+
+
