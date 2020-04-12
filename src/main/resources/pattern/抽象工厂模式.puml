@@ -1,0 +1,74 @@
+@startuml
+
+
+
+abstract class Book <<抽象产品>> {
+
+ + {abstract} String getType();
+ + {abstract} String getColor() ;
+ + {abstract} Float getPrice();
+
+}
+
+abstract class RedBook <<抽象红书>>{
++  String getColor() ;
+}
+abstract class BlueBook <<抽象蓝书>>{
++  String getColor() ;
+}
+
+
+abstract class RedITBook <<红技术书>>{
+ +  String getType();
+ +  Float getPrice();
+}
+abstract class RedStoreBook <<红小数书>>{
+ +  String getType();
+ +  Float getPrice();
+
+}
+
+abstract class BlueITBook <<蓝技术书>>{
+ +  String getType();
+ +  Float getPrice();
+}
+abstract class BlueStoreBook <<蓝小说书>>{
+		 +  String getType();
+     +  Float getPrice();
+}
+
+
+
+Book <|-- RedBook
+Book <|-- BlueBook
+
+
+RedBook <|-- RedITBook
+RedBook <|-- RedStoreBook
+
+BlueBook <|-- BlueITBook
+BlueBook <|-- BlueStoreBook
+
+
+interface Factory <<抽象工厂>>{
++ Book createRedBook();
++ Book createBlueBook();
+}
+
+Book <.. Factory: Factory 依赖Book <
+
+class ITFactory <<生产技术类书籍>>{
++ Book createRedBook();
++ Book createBlueBook();
+}
+
+class StoreFactory <<生产小说类书籍>>{
++ Book createRedBook();
++ Book createBlueBook();
+}
+
+Factory <|-- ITFactory
+Factory <|-- StoreFactory
+
+@enduml
+
