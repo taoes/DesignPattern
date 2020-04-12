@@ -1,0 +1,32 @@
+@startuml
+abstract class Creator<<抽象创建者>>{
++ {abstract} void createProduct(<T extend Product>)
+}
+
+
+class ConcreteCreator1 <<具体创建者1>>{}
+class ConcreteCreator2 <<具体创建者2>>{}
+
+
+
+Creator <|-- ConcreteCreator1
+Creator <|-- ConcreteCreator2
+
+
+
+
+class ConcreteProduct1 <<具体产品1>>{}
+class ConcreteProduct2 <<具体产品2>>{}
+
+abstract class Product <<抽象产品>> {
++ void method1(); // 共性方法
++ {abstract} void method2(); // 抽象方法
+}
+
+Product <|-- ConcreteProduct1
+Product <|-- ConcreteProduct2
+
+ConcreteProduct1 <.. ConcreteCreator1
+ConcreteProduct2 <.. ConcreteCreator2
+
+@enduml

@@ -1,0 +1,26 @@
+@startuml
+abstract class Creator<<抽象创建者>>{
++ {abstract} void createProduct(<T extend Product>)
+}
+note top
+  Creator通过创建方法构造一个Product对象
+  上层代码不需要知道Product是如何创建的
+  仅仅需要知道Product的方法即可
+end note
+
+class ConcreteCreator <<具体创建者>>{}
+
+Creator <|-- ConcreteCreator
+
+
+class ConcreteProduct <<具体产品>>{}
+
+abstract class Product <<抽象产品>> {
++ void method1(); // 共性方法
++ {abstract} void method2(); // 抽象方法
+}
+
+Product <|-- ConcreteProduct
+ConcreteProduct <.. ConcreteCreator
+
+@enduml
