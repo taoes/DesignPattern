@@ -1,0 +1,42 @@
+@startuml
+abstract class AbstractTask <<抽象任务类>>{
++ {abstract} void start(); //抽象方法
++ {abstract} void exec(); //抽象方法
++ {abstract} void stop(); //抽象方法
++ fianl void run(); // 具体的方法
+}
+note right
+  将公共的代码run()方法移到父类的方法中
+end note
+
+
+class ReadTask <<阅读任务类>> {
++  void start();
++  void exec();
++  void stop();
+}
+
+
+class WriteTask <<写作任务类>> {
++  void start();
++  void exec();
++  void stop();
+}
+
+
+
+AbstractTask <|-- WriteTask
+AbstractTask <|-- ReadTask
+
+
+
+class Client <<任务执行客户端>>{
+    - AbstractTask readTask;
+    - AbstractTask writeTask;
+    + void runTask();
+}
+
+
+WriteTask <.. Client
+ReadTask <.. Client
+@enduml

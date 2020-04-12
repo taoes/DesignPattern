@@ -1,0 +1,31 @@
+@startuml
+abstract class AbstractClass <<抽象类>>{
++ {abstract} void method1();
++ {abstract} void method2();
++ {abstract} void method2();
++ final void templateMethod(); // 模板方法
+}
+note top
+ 子类实现父类的抽象方法
+ 父类调用各个子类实现的方法
+end note
+
+
+class ConcreteClass1 <<实例类1>> {
+  + {abstract} void method1();
+  + {abstract} void method2();
+  + {abstract} void method2();
+}
+
+
+class ConcreteClass2 <<实例类1>> {
+  + {abstract} void method1();
+  + {abstract} void method2();
+  + {abstract} void method2();
+}
+
+
+
+AbstractClass <|-- ConcreteClass1
+AbstractClass <|-- ConcreteClass2
+@enduml
